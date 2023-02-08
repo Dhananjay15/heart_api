@@ -4,6 +4,7 @@ import pandas as pd
 import uvicorn
 from fastapi import FastAPI
 from heart_data import Heart
+from fastapi.middleware.cors import CORSMiddleware
 from sklearn.preprocessing import StandardScaler
 import joblib
 
@@ -13,7 +14,7 @@ sc = joblib.load('scaler.save')
 classifier = joblib.load('finalized_model.sav')
 
 @app.post('/predict_heart')
-def predict_diabetes(data:Heart):
+def predict_heart(data:Heart):
     data = data.dict()
     age = data['age']
     sex = data['sex']
