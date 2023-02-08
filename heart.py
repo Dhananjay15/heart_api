@@ -9,7 +9,15 @@ from sklearn.preprocessing import StandardScaler
 import joblib
 
 app = FastAPI()
-#classifier
+origins = ['*']
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 sc = joblib.load('scaler.save')
 classifier = joblib.load('finalized_model.sav')
 
