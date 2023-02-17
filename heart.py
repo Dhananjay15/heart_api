@@ -42,9 +42,9 @@ def predict_heart(data:Heart):
     prediction = classifier.predict(data)
     
     if(prediction[0]<=0.5):
-        prediction="NO chances of getting heart disease"
+        prediction="No chances of getting heart disease"
     else:
-        prediction="YOU have Chances of getting heart disease"
+        prediction="You have chances of getting heart disease"
     return {'prediction': prediction}
 
 
